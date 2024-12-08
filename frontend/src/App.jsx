@@ -15,13 +15,14 @@ import Login from './components/Login';
 import UserPage from './components/UserPage';
 import AuthPage from './components/AuthPage';
 
-const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
-  return children;
-};
+//added for the protected route
+// const ProtectedRoute = ({ children }) => {
+//   const token = localStorage.getItem('token');
+//   if (!token) {
+//     return <Navigate to="/auth" replace />;
+//   }
+//   return children;
+// };
 
 const App = () => {
   return (
@@ -29,17 +30,19 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/login" element={<Login />} />
+      
         <Route path="/workouts" element={<WorkoutSessions />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/bmi-calculator" element={<BMICalculator />} />
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            <UserPage />
-          </ProtectedRoute>
-        } />
+        <Route path="/dashboard" 
+        element={
+          // <ProtectedRoute>
+             <UserPage />
+          // </ProtectedRoute>
+        } 
+   />
         <Route path="/auth" element={<AuthPage />} />
       </Routes>
       <Footer />

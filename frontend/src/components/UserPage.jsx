@@ -29,79 +29,77 @@ const weeklyData = [
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white py-6 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b pt-20 from-gray-900 to-gray-800 text-white py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <nav className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold">GroundZero</h1>
-          <div className="flex space-x-4">
-            {['Home', 'Gallery', 'Workouts', 'Pricing', 'BMI Calculator', 'Contact', 'Register'].map((item) => (
-              <a key={item} href="#" className="text-sm hover:text-purple-400 transition-colors">
-                {item}
-              </a>
-            ))}
-          </div>
-        </nav>
-
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-semibold">Welcome, Fitness Enthusiast!</h2>
-          <div className="flex items-center gap-4">
-            <div className="relative">
+        {/* Header Section - Responsive Layout */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center sm:text-left w-full sm:w-auto">
+            Welcome, Fitness Enthusiast!
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div className="relative w-full sm:w-auto">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search"
-                className="pl-10 pr-4 py-2 rounded-lg border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
+                className="w-full sm:w-auto pl-10 pr-4 py-2 rounded-lg border border-gray-700 bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
               />
             </div>
-            <Bell className="text-gray-400 hover:text-purple-400 cursor-pointer" />
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white">
-                U
+            <div className="flex items-center justify-between w-full sm:w-auto">
+              <Bell className="text-gray-400 hover:text-purple-400 cursor-pointer mr-4 sm:mr-0" />
+              <div className="flex items-center gap-2">
+                <div className="w-8 ml-5 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white">
+                  U
+                </div>
+                <span className="hidden sm:inline">User</span>
               </div>
-              <span>User</span>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-8">
-            <div className="bg-gray-800 rounded-lg shadow-lg mb-6">
-              <div className="px-6 py-4">
+        {/* Grid Layout - Responsive Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Left Column - Full width on mobile, 8 columns on larger screens */}
+          <div className="md:col-span-8 space-y-6">
+            {/* Total Active Cost Card - Responsive */}
+            <div className="bg-gray-800 rounded-lg shadow-lg">
+              <div className="px-4 sm:px-6 py-4">
                 <div className="text-sm text-gray-400">Total Active Cost</div>
-                <div className="text-3xl font-bold mt-1 text-purple-400">Rs 22,729</div>
+                <div className="text-2xl sm:text-3xl font-bold mt-1 text-purple-400">Rs 22,729</div>
                 <div className="text-sm text-gray-400 mt-1">**** 1234</div>
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mb-6">
+            {/* Quick Stats - Responsive Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div className="bg-gray-800 rounded-lg shadow-lg">
-                <div className="px-6 py-4">
+                <div className="px-4 sm:px-6 py-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-sm text-gray-400">Active Subscriptions</div>
-                      <div className="text-2xl font-bold mt-1 text-purple-400">11</div>
+                      <div className="text-xl sm:text-2xl font-bold mt-1 text-purple-400">11</div>
                     </div>
                     <CreditCard className="text-purple-400" />
                   </div>
                 </div>
               </div>
               <div className="bg-gray-800 rounded-lg shadow-lg">
-                <div className="px-6 py-4">
+                <div className="px-4 sm:px-6 py-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-sm text-gray-400">Upcoming Renewals</div>
-                      <div className="text-2xl font-bold mt-1 text-purple-400">Rs 5,580</div>
+                      <div className="text-xl sm:text-2xl font-bold mt-1 text-purple-400">Rs 5,580</div>
                     </div>
                     <CalendarDays className="text-purple-400" />
                   </div>
                 </div>
               </div>
               <div className="bg-gray-800 rounded-lg shadow-lg">
-                <div className="px-6 py-4">
+                <div className="px-4 sm:px-6 py-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-sm text-gray-400">Recently Concluded</div>
-                      <div className="text-2xl font-bold mt-1 text-purple-400">5</div>
+                      <div className="text-xl sm:text-2xl font-bold mt-1 text-purple-400">5</div>
                     </div>
                     <Dumbbell className="text-purple-400" />
                   </div>
@@ -109,17 +107,20 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Budget vs Actual Report - Responsive */}
             <div className="bg-gray-800 rounded-lg shadow-lg">
-              <div className="px-6 py-4 border-b border-gray-700">
-                <div className="flex justify-between items-center">
-                  <h2 className="text-lg font-semibold">Budget vs Actual Report</h2>
-                  <select className="bg-gray-700 text-white border border-gray-600 rounded p-1">
+              <div className="px-4 sm:px-6 py-4 border-b border-gray-700">
+                <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
+                  <h2 className="text-base sm:text-lg font-semibold text-center sm:text-left w-full sm:w-auto">
+                    Budget vs Actual Report
+                  </h2>
+                  <select className="w-full sm:w-auto bg-gray-700 text-white border border-gray-600 rounded p-1 text-sm">
                     <option>Monthly</option>
                   </select>
                 </div>
               </div>
-              <div className="px-6 py-4">
-                <div className="h-64">
+              <div className="px-4 sm:px-6 py-4">
+                <div className="h-48 sm:h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={monthlyData}>
                       <XAxis dataKey="month" stroke="#9CA3AF" />
@@ -133,9 +134,11 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="col-span-4">
-            <div className="mb-6 bg-gray-800 rounded-lg shadow-lg">
-              <div className="px-6 py-4 border-b border-gray-700">
+          {/* Right Column - Full width on mobile, 4 columns on larger screens */}
+          <div className="md:col-span-4 space-y-6">
+            {/* Usage Analysis - Responsive */}
+            <div className="bg-gray-800 rounded-lg shadow-lg">
+              <div className="px-4 sm:px-6 py-4 border-b border-gray-700">
                 <div className="relative pt-1">
                   <div className="flex mb-2 items-center justify-between">
                     <div>
@@ -156,15 +159,16 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Weekly Spend Trend - Responsive */}
             <div className="bg-gray-800 rounded-lg shadow-lg">
-              <div className="px-6 py-4 border-b border-gray-700">
-                <h2 className="text-lg font-semibold flex items-center">
-                  <TrendingUp className="mr-2 text-purple-400" />
+              <div className="px-4 sm:px-6 py-4 border-b border-gray-700">
+                <h2 className="text-base sm:text-lg font-semibold flex items-center">
+                  <TrendingUp className="mr-2 text-purple-400 w-4 h-4 sm:w-5 sm:h-5" />
                   Weekly Spend Trend
                 </h2>
               </div>
-              <div className="px-6 py-4">
-                <div className="h-64">
+              <div className="px-4 sm:px-6 py-4">
+                <div className="h-48 sm:h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={weeklyData}>
                       <XAxis dataKey="day" stroke="#9CA3AF" />
@@ -178,7 +182,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <footer className="mt-12 text-center text-sm text-gray-400">
+        {/* Footer - Responsive */}
+        <footer className="mt-6 sm:mt-12 text-center text-xs sm:text-sm text-gray-400">
           © 2024 GroundZero. All rights reserved.
         </footer>
       </div>
